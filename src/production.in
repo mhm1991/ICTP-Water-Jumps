@@ -1,0 +1,36 @@
+units real
+atom_style full
+
+# Set random number seed (if needed)
+#variable seed_value equal 12345
+#random seed ${seed_value}
+
+
+
+pair_style lj/cut/coul/cut 10.0
+
+
+
+#molecule water spce.mol
+
+# Read the equilibrated configuration from the equilibration stage
+read_data equilibrated_configuration.data
+
+timestep 1.0
+fix rigid all shake 0.0001 10 10000 b 1 a 1
+minimize 0.0 0.0 1000 10000
+
+# Set seed for velocity creation
+velocity all create 300.0 ${seed_value}
+
+# Production phase
+fix production_nvt all nvt temp 300.0 300.0 100.0
+
+thermo_style custom step temp press etotal density pe ke
+thermo 100
+
+# Dump stage
+dump mydump all custom 100 NVT_water_T_300.xyz id type x y z
+dump_modify mydump sort id
+
+run 200000

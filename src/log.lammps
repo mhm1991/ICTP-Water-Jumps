@@ -1,0 +1,25 @@
+LAMMPS (2 Aug 2023)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (src/comm.cpp:98)
+  using 1 OpenMP thread(s) per MPI task
+units real
+atom_style full
+
+# Set random number seed (if needed)
+#variable seed_value equal 12345
+#random seed ${seed_value}
+
+
+
+pair_style lj/cut/coul/cut 10.0
+
+
+
+#molecule water spce.mol
+
+# Read the equilibrated configuration from the equilibration stage
+read_data equilibrated_configuration.data
+Reading data file ...
+  orthogonal box = (-0.07381525 -0.07381525 -0.07381525) to (31.073815 31.073815 31.073815)
+  1 by 2 by 5 MPI processor grid
+ERROR: Must define bond_style before Bond Coeffs (src/read_data.cpp:720)
+Last command: read_data equilibrated_configuration.data
