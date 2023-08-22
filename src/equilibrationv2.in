@@ -43,7 +43,7 @@ velocity all create 300.0 ${seed_value}
 
 
 # Equilibration phase
-fix npt_equilibration all npt temp 300.0 300.0 100.0 iso 1.0 1.0 1000.0
+fix npt_equilibration all npt temp 300.0 300.0 100.0 iso 1.0 1.0 100.0
 thermo_style custom step temp press etotal density pe ke
 thermo 100
 

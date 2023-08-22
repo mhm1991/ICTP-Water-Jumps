@@ -7,35 +7,27 @@ LAMMPS data file via write_data, version 2 Aug 2023, timestep = 20027, units = r
 1019 angles
 1 angle types
 
-
-
 -0.07381524985263883 31.073815249852743 xlo xhi
 -0.07381524985263883 31.073815249852743 ylo yhi
 -0.07381524985263883 31.073815249852743 zlo zhi
-
-
 
 Masses
 
 1 15.9994
 2 1.008
 
-Bond Coeffs # zero
+#Pair Coeffs # lj/cut/coul/cut
 
-1 1
+#1 0.1553 3.166
+#2 0 1
 
-Angle Coeffs # zero
+#Bond Coeffs # zero
 
-1 109.47
+#1 1
 
-Pair Coeffs # lj/cut/coul/cut
+#Angle Coeffs # zero
 
-1 0.1553 3.166
-2 0 1
-
-
-
-
+#1 109.47
 
 Atoms # full
 

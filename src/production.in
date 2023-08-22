@@ -7,7 +7,7 @@ atom_style full
 
 
 
-pair_style lj/cut/coul/cut 10.0
+
 
 
 
@@ -16,9 +16,18 @@ pair_style lj/cut/coul/cut 10.0
 # Read the equilibrated configuration from the equilibration stage
 read_data equilibrated_configuration.data
 
+
+#pair_style lj/cut/coul/cut 10.0
+bond_style zero
+bond_coeff 1 1.0
+
+angle_style zero
+angle_coeff 1 109.47
+
+
 timestep 1.0
 fix rigid all shake 0.0001 10 10000 b 1 a 1
-minimize 0.0 0.0 1000 10000
+#minimize 0.0 0.0 1000 10000
 
 # Set seed for velocity creation
 velocity all create 300.0 ${seed_value}
@@ -33,4 +42,4 @@ thermo 100
 dump mydump all custom 100 NVT_water_T_300.xyz id type x y z
 dump_modify mydump sort id
 
-run 200000
+run 1000000
